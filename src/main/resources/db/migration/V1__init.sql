@@ -16,20 +16,26 @@ CREATE TABLE IF NOT EXISTS  mascotas
     raza VARCHAR(45) NOT NULL,
     edad VARCHAR(45) NOT NULL,
     tipoComida VARCHAR(45) NOT NULL,
-    enfermedades VARCHAR(45) NOT NULL,
-    PRIMARY KEY (id)
+    enfermedades VARCHAR(45),
+    idCliente int ,
+    PRIMARY KEY (id),
+    FOREIGN KEY (idCliente) REFERENCES clientes (id)
     );
 
 CREATE TABLE IF NOT EXISTS  hospedaje
     (id serial,
-    fechaIngreso date NOT NULL,
-    fechaSalida DATE NOT NULL,
+    fechaIngreso VARCHAR(45) NOT NULL,
+    fechaSalida VARCHAR(45),
     numeroHabitacion VARCHAR(45) NOT NULL,
-    PRIMARY KEY (id)
+    idMascota int ,
+    PRIMARY KEY (id),
+    FOREIGN KEY (idMascota) REFERENCES mascotas (id)
     );
 
 CREATE TABLE IF NOT EXISTS  servicio
     (id serial,
     tipoServicio VARCHAR(45) NOT NULL,
-    PRIMARY KEY (id)
+    idHospedaje int ,
+    PRIMARY KEY (id),
+    FOREIGN KEY (idHospedaje) REFERENCES hospedaje (id)
     );

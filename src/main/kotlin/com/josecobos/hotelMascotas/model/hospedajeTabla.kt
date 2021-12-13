@@ -13,4 +13,6 @@ class hospedajeTabla {
     var fechaingreso: Date? = null
     var fechasalida: Date? = null
     var numerohabitacion: String? = null
+    @Column(name="idMascota")
+    var mascotaId : Long? = null
 }

@@ -15,5 +15,7 @@ class mascotaTabla {
     var edad: String? = null
     var tipocomida: String? = null
     var enfermedades: String? = null
+    @Column(name="idCliente")
+    var clienteId : Long? = null
 
 }

@@ -10,5 +10,7 @@ class servicioTabla {
     @Column(updatable = false)
     var id: Long? = null
     var tiposervicio: String? = null
+    @Column(name="idHospedaje")
+    var hospedajeId : Long? = null
 
 }
