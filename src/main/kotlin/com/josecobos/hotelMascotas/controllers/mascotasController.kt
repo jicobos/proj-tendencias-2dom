@@ -1,7 +1,8 @@
 package com.josecobos.hotelMascotas.controllers
 
-import com.josecobos.hotelMascotas.model.mascotaTabla
-import com.josecobos.hotelMascotas.service.mascotaService
+import com.josecobos.hotelMascotas.model.ClienteTabla
+import com.josecobos.hotelMascotas.model.MascotaTabla
+import com.josecobos.hotelMascotas.service.MascotaService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
@@ -11,20 +12,24 @@ import org.springframework.web.bind.annotation.*
 
 class mascotasController {
     @Autowired
-    lateinit var mascotaService: mascotaService
+    lateinit var mascotaService: MascotaService
 
     @GetMapping
-    fun list(): List<mascotaTabla>{
+    fun list(): List<MascotaTabla>{
         return mascotaService.list()
     }
     @PostMapping
-    fun save(@RequestBody mascotaTabla: mascotaTabla):mascotaTabla{
-        return mascotaService.save(mascotaTabla)
+    fun save(@RequestBody MascotaTabla: MascotaTabla):MascotaTabla{
+        return mascotaService.save(MascotaTabla)
     }
 
     @PutMapping
-    fun update (@RequestBody mascotaTabla: mascotaTabla):mascotaTabla{
-        return mascotaService.update(mascotaTabla)
+    fun update (@RequestBody MascotaTabla: MascotaTabla):MascotaTabla{
+        return mascotaService.update(MascotaTabla)
+    }
+    @PatchMapping
+    fun updateDescription (@RequestBody MascotaTabla: MascotaTabla):MascotaTabla {
+        return mascotaService.updateDescription(MascotaTabla)
     }
 
     @DeleteMapping("/delete/{id}")

@@ -5,7 +5,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "hospedaje")
-class hospedajeTabla {
+class HospedajeTabla {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(updatable = false)

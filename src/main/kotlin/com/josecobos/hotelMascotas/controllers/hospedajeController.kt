@@ -1,9 +1,7 @@
 package com.josecobos.hotelMascotas.controllers
 
-import com.josecobos.hotelMascotas.model.hospedajeTabla
-import com.josecobos.hotelMascotas.model.mascotaTabla
-import com.josecobos.hotelMascotas.service.hospedajeService
-import com.josecobos.hotelMascotas.service.mascotaService
+import com.josecobos.hotelMascotas.model.HospedajeTabla
+import com.josecobos.hotelMascotas.service.HospedajeService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 
@@ -13,20 +11,24 @@ import org.springframework.web.bind.annotation.*
 
 class hospedajeController {
     @Autowired
-    lateinit var hospedajeService: hospedajeService
+    lateinit var hospedajeService: HospedajeService
 
     @GetMapping
-    fun list(): List<hospedajeTabla>{
+    fun list(): List<HospedajeTabla>{
         return hospedajeService.list()
     }
     @PostMapping
-    fun save(@RequestBody hospedajeTabla: hospedajeTabla):hospedajeTabla{
-        return hospedajeService.save(hospedajeTabla)
+    fun save(@RequestBody HospedajeTabla: HospedajeTabla):HospedajeTabla{
+        return hospedajeService.save(HospedajeTabla)
     }
 
     @PutMapping
-    fun update (@RequestBody hospedajeTabla: hospedajeTabla):hospedajeTabla{
-        return hospedajeService.update(hospedajeTabla)
+    fun update (@RequestBody HospedajeTabla: HospedajeTabla):HospedajeTabla{
+        return hospedajeService.update(HospedajeTabla)
+    }
+    @PatchMapping
+    fun updateDescription (@RequestBody HospedajeTabla: HospedajeTabla):HospedajeTabla{
+        return hospedajeService.updateDescription(HospedajeTabla)
     }
 
     @DeleteMapping("/delete/{id}")
