@@ -5,3 +5,4 @@
 "# hotelmascotas" 
 "# hotelmascotas" 
 "# hotelmascotas" 
+"# hotel" 
